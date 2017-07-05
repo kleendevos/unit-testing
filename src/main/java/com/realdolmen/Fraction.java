@@ -13,11 +13,11 @@ public class Fraction {
         this.simplify();
     }
 
-    public int numinator () {
+    public int numinator() {
         return numerator;
     }
 
-    public int denomintor (){
+    public int denomintor() {
         return denominator;
     }
 
@@ -26,11 +26,39 @@ public class Fraction {
         return (numerator + "/" + denominator);
     }
 
-    private void simplify(){
-        int factor = Utilities.greatestCommonFactor(numerator,denominator);
+    private void simplify() {
+        int factor = Utilities.greatestCommonFactor(numerator, denominator);
         numerator /= factor;
         denominator /= factor;
     }
 
+    public Fraction add(Fraction other) {
+        return new Fraction((this.numinator() * other.denomintor()) + (this.denomintor() * other.numinator()), this.denomintor() * other.denomintor());
+
+    }
+
+    public Fraction subtract(Fraction other) {
+        return new Fraction((this.numinator() * other.denomintor()) - (this.denomintor() * other.numinator()), this.denomintor() * other.denomintor());
+
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Fraction fraction = (Fraction) o;
+
+        if (numerator != fraction.numerator) return false;
+        return denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = numerator;
+        result = 31 * result + denominator;
+        return result;
+    }
 }
 
