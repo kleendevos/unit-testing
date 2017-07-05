@@ -27,6 +27,20 @@ public class Fraction {
     }
 
     private void simplify() {
+        if (numerator==0) {
+            denominator = 1;
+            return;
+        }
+
+        if (denominator<0) {
+            denominator =-denominator;
+            numerator =-numerator;
+        }
+
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Dividing by zero not possible");
+        }
+
         int factor = Utilities.greatestCommonFactor(numerator, denominator);
         numerator /= factor;
         denominator /= factor;
@@ -40,6 +54,20 @@ public class Fraction {
     public Fraction subtract(Fraction other) {
         return new Fraction((this.numinator() * other.denomintor()) - (this.denomintor() * other.numinator()), this.denomintor() * other.denomintor());
 
+    }
+
+    public Fraction multiplication (Fraction other) {
+        return new Fraction((this.numinator() * other.numinator()), this.denomintor() * other.denomintor());
+
+    }
+
+    public Fraction devider (Fraction other) {
+        return new Fraction((this.numinator() / other.numinator()), this.denomintor() / other.denomintor());
+
+    }
+
+    public Fraction reciprocal (Fraction other) {
+        return new Fraction(this.denominator, this.numerator);
     }
 
 
