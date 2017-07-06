@@ -25,6 +25,8 @@ public class FractionParametrizedTest {
     public Fraction expectedmultiplicator;
     @Parameterized.Parameter(5)
     public Fraction expectedDivider;
+    @Parameterized.Parameter(6)
+    public Fraction expectedreciprocala;
 
     @Parameterized.Parameters
     public static Collection<Fraction[]> params() {
@@ -35,7 +37,8 @@ public class FractionParametrizedTest {
                         new Fraction(1, 1),
                         new Fraction(0, 1),
                         new Fraction(1, 4),
-                        new Fraction(1, 1)},
+                        new Fraction(1, 1),
+                        new Fraction(2,1)},
 
                 {
                         new Fraction(3, 5),
@@ -43,7 +46,8 @@ public class FractionParametrizedTest {
                         new Fraction(8, 5),
                         new Fraction(-2, 5),
                         new Fraction(3, 5),
-                        new Fraction(3, 5)},
+                        new Fraction(3, 5),
+                        new Fraction(5,3)},
 
                 {
                         new Fraction(7, 8),
@@ -51,7 +55,8 @@ public class FractionParametrizedTest {
                         new Fraction(29, 24),
                         new Fraction(13, 24),
                         new Fraction(7, 24),
-                        new Fraction(7, 2)}
+                        new Fraction(7, 2),
+                        new Fraction(8,7)}
         });
     }
 
@@ -73,6 +78,11 @@ public class FractionParametrizedTest {
     @Test
     public void deviderFractions() {
         assertEquals(expectedDivider, a.devider(b));
+    }
+
+    @Test
+    public void reciprocalFraction(){
+        assertEquals(expectedreciprocala, a.reciprocal(a));
     }
 
 }

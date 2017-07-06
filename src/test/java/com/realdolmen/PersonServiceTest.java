@@ -17,25 +17,26 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class PersonServiceTest {
 
-    @Mock PersonRepository personRepository;
+    @Mock
+    PersonRepository personRepository;
     private Person person;
 
     @InjectMocks
     private PersonService personService = new PersonService();
 
     @Before
-    public void makeNewPerson () {
-         person = new Person("K","D",null, null);
+    public void makeNewPerson() {
+        person = new Person("K", "D", null, null);
     }
 
     @Test
-    public void testPersonIsSaved (){
+    public void testPersonIsSaved() {
         personService.save(person);
         verify(personRepository).save(same(person));
     }
 
     @Test
-    public void testPersonIsFoundById (){
+    public void testPersonIsFoundById() {
         when(personRepository.find(anyInt())).thenReturn(person);
         personService.findbyID(10);
         verify(personRepository).find(anyInt());
@@ -43,18 +44,12 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void testPersonIsRemovedById () {
+    public void testPersonIsRemovedById() {
         when(personRepository.find(anyInt())).thenReturn(person);
         personService.removebyID(anyInt());
         verify(personRepository).find(anyInt());
         verify(personRepository).remove(same(person));
 
     }
-
-
-
-
-
-
 
 }

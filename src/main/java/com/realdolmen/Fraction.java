@@ -66,6 +66,10 @@ public class Fraction {
 
     }
 
+    public Fraction reciprocal (Fraction other) {
+        return new Fraction(this.denomintor(),this.numinator());
+    }
+
 
     @Override
     public boolean equals(Object o) {
