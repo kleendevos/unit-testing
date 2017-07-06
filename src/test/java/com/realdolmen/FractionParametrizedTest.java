@@ -25,8 +25,6 @@ public class FractionParametrizedTest {
     public Fraction expectedmultiplicator;
     @Parameterized.Parameter(5)
     public Fraction expectedDivider;
-    @Parameterized.Parameter(6)
-    public Fraction expectedreciprocal;
 
     @Parameterized.Parameters
     public static Collection<Fraction[]> params() {
@@ -37,8 +35,7 @@ public class FractionParametrizedTest {
                         new Fraction(1, 1),
                         new Fraction(0, 1),
                         new Fraction(1, 4),
-                        new Fraction(1, 1),
-                new Fraction(2,1)},
+                        new Fraction(1, 1)},
 
                 {
                         new Fraction(3, 5),
