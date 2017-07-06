@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.internal.matchers.Null;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.same;
@@ -38,7 +39,8 @@ public class PersonServiceTest {
     @Test
     public void testPersonIsFoundById() {
         when(personRepository.find(anyInt())).thenReturn(person);
-        personService.findbyID(10);
+        Person result = personService.findbyID(10);
+        assertNotNull (result);
         verify(personRepository).find(anyInt());
 
     }

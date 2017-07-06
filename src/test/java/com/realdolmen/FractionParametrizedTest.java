@@ -32,13 +32,13 @@ public class FractionParametrizedTest {
     public static Collection<Fraction[]> params() {
         return Arrays.asList(new Fraction[][]{
                 {
-                        new Fraction(1, 2),
-                        new Fraction(1, 2),
-                        new Fraction(1, 1),
+                        new Fraction(12, 13),
+                        new Fraction(16, 17),
+                        new Fraction(412, 221),
+                        new Fraction(-4, 221),
+                        new Fraction(192, 221),
                         new Fraction(0, 1),
-                        new Fraction(1, 4),
-                        new Fraction(1, 1),
-                        new Fraction(2,1)},
+                        new Fraction(13,12)},
 
                 {
                         new Fraction(3, 5),

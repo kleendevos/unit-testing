@@ -82,11 +82,5 @@ public class Fraction {
         return denominator == fraction.denominator;
     }
 
-    @Override
-    public int hashCode() {
-        int result = numerator;
-        result = 31 * result + denominator;
-        return result;
-    }
 }
 
